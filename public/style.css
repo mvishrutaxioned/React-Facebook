@@ -133,6 +133,9 @@ header .wrapper {
 .icon,
 .brand { font-size: 0; }
 
+.post-attr li a::before,
+.likes-comments a:first-child::before,
+.post-heading small::after,
 .addPost ul li a::before,
 .icon::after {
   display: inline-block;
@@ -339,7 +342,9 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 
 .addPost ul li { margin: 15px auto 4px auto; }
 
-.addPost ul li a {
+.post-attr li,
+.addPost ul li a,
+.likes-comments a {
     display: flex;
     align-items: center;
     transition: .5s ease;
@@ -367,13 +372,89 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
     color: #f3e520;
 }
 
-.addPost ul li a {
+.addPost ul li a,
+.likes-comments a {
     color: #666;
     font-weight: 600;
 }
 
 /* posts section starts */
 
+.post-list {
+    width: 34%;
+    margin: 0 auto;
+}
+
+.post-list .wrapper { width: 100%; }
+
+.post-list .wrapper > ul > li {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 9px -5px #000000bf;
+    background-color: #fff;
+}
+
+.post-heading {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.post-heading h2 {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.post-heading small { font-size: 12px; }
+
+.post-heading small::after {
+    content: '\f57e';
+    margin-left: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.post-list p {
+    margin: 0 15px 20px 15px;
+    font-size: 15px;
+}
+
+.post-heading .user::after { font-size: 48px; }
+
+.likes-comments,
+.post-attr {
+    padding: 14px 0;
+    margin: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.likes-comments a:first-child::before {
+    content: '\f164';
+    padding: 7px 8px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #0b84ee;
+    color: #fff;
+    font-size: 12px;
+}
+
+.post-attr {
+    margin-bottom: 15px;
+    border-top: 1px solid #bfc2c6;
+    border-bottom: 1px solid #bfc2c6;
+}
+
+.post-attr li a {
+    color: #666;
+    font-size: 14px;
+}
+
+.post-attr li a::before { margin-right: 5px; }
+.post-attr li:nth-child(1) a::before { content: '\f164'; }
+.post-attr li:nth-child(2) a::before { content: '\f27a'; }
+.post-attr li:nth-child(3) a::before { content: '\f064'; }
 
 /* posts section ends */
 
