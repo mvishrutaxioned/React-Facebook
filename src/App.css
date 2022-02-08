@@ -84,6 +84,7 @@ sub { bottom: -.25em; }
 body {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  background: #f0f2f5;
 }
 
 a { 
@@ -117,6 +118,7 @@ li {
 header {
   width: 100%;
   box-shadow: 0px 7px 10px -9px #000000bf;
+  background: #fff;
 }
 
 header .wrapper {
@@ -131,6 +133,7 @@ header .wrapper {
 .icon,
 .brand { font-size: 0; }
 
+.addPost ul li a::before,
 .icon::after {
   display: inline-block;
   font-weight: 600;
@@ -293,6 +296,86 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
   main styling starts here
 =================================*/
 
+.addPost {
+    width: 34%;
+    padding: 15px 0;
+    margin: 30px auto 50px auto;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 0px 9px -5px #000000bf;
+}
+
+.addPost .wrapper { width: 94%; }
+
+.send {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d8dadb;
+}
+
+.send span { width: 10%; }
+.send form { width: 90%; }
+
+.send form input  {
+    width: 90%;
+    margin-left: 12px;
+    padding: 15px;
+    border: none;
+    border-radius: 28px;
+    background: #f0f2f5;
+    font-size: 18px;
+    text-indent: 10px;
+    outline: none;
+}
+
+.send .user::after { font-size: 48px; }
+
+.addPost ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.addPost ul li { margin: 15px auto 4px auto; }
+
+.addPost ul li a {
+    display: flex;
+    align-items: center;
+    transition: .5s ease;
+}
+
+.addPost ul li a:hover { transform: scale(1.1); }
+
+.addPost ul li a::before {
+    margin-right: 6px;
+    font-size: 24px;
+}
+
+.addPost ul li:nth-child(1) a::before {
+    content: '\f03d';
+    color: #f52b2b;
+}
+
+.addPost ul li:nth-child(2) a::before {
+    content: '\f302';
+    color: #80f770;
+}
+
+.addPost ul li:nth-child(3) a::before {
+    content: '\f4da';
+    color: #f3e520;
+}
+
+.addPost ul li a {
+    color: #666;
+    font-weight: 600;
+}
+
+/* posts section starts */
+
+
+/* posts section ends */
 
 /*=================================
   main styling ends here
