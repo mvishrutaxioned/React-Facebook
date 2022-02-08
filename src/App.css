@@ -1,38 +1,311 @@
-.App {
-  text-align: center;
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button { cursor: pointer; }
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+body {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+/* Common styling */
+.grey { color: #666; }
+.cap { text-transform: capitalize; }
+.up { text-transform: uppercase; }
+.center { text-align: center; }
+.bold { font-weight: bold; }
+.transition { transition: 1s all ease; }
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1350px;
+  width: 79%;
+  margin: 0 auto;
+}
+
+/*=================================
+  header styling starts here
+=================================*/
+
+header {
+  width: 100%;
+  box-shadow: 0px 7px 10px -9px #000000bf;
+}
+
+header .wrapper {
+  width: 97%;
+  box-sizing: border-box;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}
+
+.icon,
+.brand { font-size: 0; }
+
+.icon::after {
+  display: inline-block;
+  font-weight: 600;
+  font-family: "Font Awesome 5 Free";
+}
+
+.brand::after {
+  display: inline-block;
+  font-weight: 600;
+  font-family: "Font Awesome 5 Brands";
+}
+
+/* logo styling starts */
+
+.logo {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 { margin-right: 10px; }
+
+.logo h1 a::after {
+  content: '\f09a';
+  border-radius: 50%;
+  color: #0b84ee;
+  font-size: 43px;
+}
+
+.logo form div {
+  padding: 4px 18px;
+  border-radius: 40px;
+  background: #f0f2f5;
+}
+
+.logo form input {
+  border: none;
+  padding: 8px;
+  background: #f0f2f5;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+form button {
+  border: none;
+  background: #f0f2f5;
+  outline: none;
+}
+
+form button::after {
+  content: '\f002';
+  color: #666;
+  font-size: 16px;
+}
+
+/* logo styling ends */
+
+/* nav styling starts */
+
+nav { width: 50%; }
+
+nav ul {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  list-style: none;
 }
 
-.App-link {
-  color: #61dafb;
+nav ul li {
+  padding: 2px 0;
+  margin-right: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav ul li.active {
+  color: #0b84ee;
+  border-bottom: 5px solid #0b84ee;
 }
+
+nav ul li.active a::after { color: #0b84ee; }
+nav ul li a::after { padding: 12px 35px; }
+
+nav ul li a::after {
+  color: #696969;
+  font-size: 26px;
+  transition: .5s ease;
+}
+
+nav ul li a:hover::after {
+  border-radius: 12px;
+  background: #f0f2f5;
+}
+
+nav ul li:first-child a::after { content: '\f015'; }
+nav ul li:nth-child(2) a::after { content: '\f03d'; }
+nav ul li:nth-child(3) a::after { content: '\f54e'; }
+nav ul li:nth-child(4) a::after { content: '\f0c0'; }
+nav ul li:nth-child(5) a::after { content: '\f11b'; }
+
+.user::after {
+  content: '\f2bd';
+  margin-right: 10px;
+  color: #bfc2c6;
+  font-size: 30px;
+}
+
+.links {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.links,
+.links > a,
+.links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+}
+
+.links h2 {
+  color: #333;
+  font-size: 16px;
+}
+.links ul { margin-left: 20px; }
+
+.links ul li {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.links ul li:hover { background: #bfc2c6; }
+
+.links ul li a::after {
+  padding: 12px 13px;
+  border-radius: 50%;
+  color: #333;
+  font-size: 20px;
+}
+
+.links ul li:first-child a::after { content: '\f067'; }
+.links ul li:nth-child(2) a::after { content: '\f39f'; }
+.links ul li:nth-child(3) a::after { content: '\f0f3'; }
+.links ul li:nth-child(4) a::after { content: '\f0dd'; }
+
+/*=================================
+  header styling ends here
+=================================*/
+
+/*=================================
+  main styling starts here
+=================================*/
+
+
+/*=================================
+  main styling ends here
+=================================*/
+
+/*=================================
+  footer styling starts here
+=================================*/
+
+
+/*=================================
+ footer styling ends here
+=================================*/
+
+/*media query starts*/
+
