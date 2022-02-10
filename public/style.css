@@ -187,12 +187,14 @@ header .wrapper {
   outline: none;
 }
 
+.gif-popup form button,
 .logo form button {
   border: none;
   background: #f0f2f5;
   outline: none;
 }
 
+.gif-popup form button::after,
 .logo form button::after {
   content: '\f002';
   color: #666;
@@ -203,7 +205,18 @@ header .wrapper {
 
 /* nav styling starts */
 
-nav { width: 50%; }
+nav {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+.menu { display: none; }
+
+.menu::after {
+    content: '\f0c9';
+    color: #666;
+    font-size: 28px;
+}
 
 nav ul {
   display: flex;
@@ -493,7 +506,7 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
     margin: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 9px -5px #000000bf;
-    display: none;
+    display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
@@ -504,6 +517,8 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
     z-index: 10;
     overflow-y: hidden;
 }
+
+.popup { display: none; }
 
 .gif-popup ul {
     height: 400px;
@@ -642,6 +657,7 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
     width: 100%;
     padding: 15px;
     margin: 10px auto;
+    border: none;
     border-radius: 10px;
     background: #d8dadb;
     color: #666;
@@ -689,4 +705,184 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 =================================*/
 
 /*media query starts*/
+/*media query for 1280px starts here*/
+@media only screen and (max-width: 1280px) {
+    .logo { width: 95%; }
 
+    .menu {
+        padding: 10px 20px;
+        margin: 8px auto;
+        display: block;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .5s ease;
+    }
+
+    .menu:hover { background: #d8dadb; }
+
+    nav {
+        width: 30%;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+        overflow-y: scroll;
+        transform: translateX(-100%);
+        transition: .8s ease;
+    }
+
+    .showNav { transform: translateX(0); }
+
+    .links {
+        margin: 0 auto;
+        flex-direction: column;
+    }
+
+    nav > ul {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav > ul li { margin: 10px auto; }
+
+    nav > ul li a::after {
+        padding: 5px 12px;
+        font-size: 20px;
+    }
+
+    .links ul li {
+        width: 36px;
+        height: 30px;
+        margin: 10px 5px;
+      }
+
+    .links ul li a::after {
+        padding: 4px 8px;
+        font-size: 16px;
+    }
+
+    .post-list,
+    .addPost,
+    .gif-popup,
+    .popup { width: 44%; }
+}
+
+/*media query for 1024px starts here*/
+@media only screen and (max-width: 1024px) {
+    .post-list,
+    .addPost,
+    .gif-popup,
+    .popup {
+        width: 64%;
+    }
+}
+
+/*media query for 768px starts here*/
+@media only screen and (max-width: 768px) {
+    nav { width: 50%; }
+
+    .post-list,
+    .addPost,
+    .gif-popup,
+    .popup {
+        width: 74%;
+    }
+}
+
+/*media query for 540px starts here*/
+@media only screen and (max-width: 540px) {
+    nav { width: 75%; }
+
+    .post-list,
+    .addPost,
+    .gif-popup,
+    .popup {
+        width: 95%;
+    }
+
+    .menu::after {
+      padding: 6px 8px;
+      font-size: 16px;
+    }
+
+    .logo h1 a::after { font-size: 36px; }
+    .logo form div { padding: 4px 6px;}
+
+    .logo form input {
+        padding: 8px 4px;
+        font-size: 14px;
+    }
+
+    .logo form button::after { font-size: 12px; }
+
+    .send span { width: 15%; }
+    .send form { width: 80%; }
+
+    .send form input  {
+        margin-left: 8px;
+        font-size: 15px;
+        text-indent: 6px;
+    }
+
+    .send .user::after { font-size: 40px; }
+    .addPost ul li { margin: 15px auto 4px auto; }
+    .addPost ul li a { font-size: 12px; }
+    .addPost ul li a::before { font-size: 15px; }
+
+    .popup .close-popup {
+      padding: 6px 12px;
+      font-size: 16px;
+    }
+
+    .popup textarea { font-size: 15px; }
+}
+
+/*media query for 320px starts here*/
+@media only screen and (max-width: 320px) {
+    .logo { width: 90%; }
+    .menu { padding: 4px; }
+    .logo form input { width: 70%; }
+    .send form { width: 100%; }
+
+    .send form input {
+      padding: 15px 4px;
+      font-size: 14px;
+    }
+
+    .popup,
+    .popup .wrapper { box-sizing: border-box; }
+
+    .popup > h2 {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .popup .close-popup {
+      padding: 4px 10px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .popup .user::after { font-size: 35px; } 
+    .popup-title { margin-left: 0; }
+    .popup-title h2 { font-size: 12px; }
+    .popup-title select {
+      margin-top: 2px;
+      font-size: 10px;
+    }
+
+    .post-specs p { font-size: 14px; }
+    .post-specs label::after,
+    .post-specs div a::after {
+      font-size: 18px;
+    }
+
+    .popup form button { 
+      padding: 6px;
+      font-size: 14px;
+    }
+}

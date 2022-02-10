@@ -117,8 +117,10 @@ li {
 
 header {
   width: 100%;
-  box-shadow: 0px 7px 10px -9px #000000bf;
+  position: fixed;
+  top: 0;
   background: #fff;
+  box-shadow: 0px 7px 10px -9px #000000bf;
 }
 
 header .wrapper {
@@ -131,8 +133,9 @@ header .wrapper {
 }
 
 .icon,
-.brand { font-size: 0; }
-
+.brand {
+  font-size: 0;
+}
 
 .back::after,
 .post-specs label::after,
@@ -187,12 +190,14 @@ header .wrapper {
   outline: none;
 }
 
+.gif-popup form button,
 .logo form button {
   border: none;
   background: #f0f2f5;
   outline: none;
 }
 
+.gif-popup form button::after,
 .logo form button::after {
   content: '\f002';
   color: #666;
@@ -203,7 +208,19 @@ header .wrapper {
 
 /* nav styling starts */
 
-nav { width: 50%; }
+nav {
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu { display: none; }
+
+.menu::after {
+  content: '\f0c9';
+  color: #666;
+  font-size: 28px;
+}
 
 nav ul {
   display: flex;
@@ -268,6 +285,7 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
   color: #333;
   font-size: 16px;
 }
+
 .links ul { margin-left: 20px; }
 
 .links ul li {
@@ -278,19 +296,22 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f2f5;
   cursor: pointer;
   transition: .5s ease;
+  overflow: hidden;
 }
 
 .close-image:hover,
 .back:hover,
 .popup .close-popup:hover,
-.links ul li:hover { background: #bfc2c6; }
+.links ul li a:hover::after {
+  background: #bfc2c6;
+}
 
 .links ul li a::after {
-  padding: 12px 13px;
+  padding: 16px 20px;
   border-radius: 50%;
+  background-color: #f0f2f5;
   color: #333;
   font-size: 20px;
 }
@@ -309,45 +330,44 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 =================================*/
 
 .addPost {
-    width: 34%;
-    padding: 15px 0;
-    margin: 30px auto 50px auto;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0px 0px 9px -5px #000000bf;
+  width: 34%;
+  padding: 15px 0;
+  margin: 90px auto 30px auto;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 0px 9px -5px #000000bf;
 }
 
 .addPost .wrapper { width: 94%; }
 
 .send {
-    padding-bottom: 15px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #d8dadb;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d8dadb;
+  display: flex;
+  align-items: center;
 }
 
 .send span { width: 10%; }
 .send form { width: 90%; }
 
 .send form input  {
-    width: 90%;
-    margin-left: 12px;
-    padding: 15px;
-    border: none;
-    border-radius: 28px;
-    background: #f0f2f5;
-    font-size: 18px;
-    text-indent: 10px;
-    outline: none;
-    cursor: pointer;
+  width: 90%;
+  padding: 15px;
+  margin-left: 12px;
+  border: none;
+  border-radius: 28px;
+  background: #f0f2f5;
+  font-size: 18px;
+  text-indent: 10px;
+  outline: none;
 }
 
 .send .user::after { font-size: 48px; }
 
 .addPost ul {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .addPost ul li { margin: 15px auto 4px auto; }
@@ -356,114 +376,118 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 .addPost ul li a,
 .likes-comments a,
 .post-specs div {
-    display: flex;
-    align-items: center;
-    transition: .5s ease;
+  display: flex;
+  align-items: center;
+  transition: .5s ease;
 }
 
 .addPost ul li a:hover { transform: scale(1.1); }
 
 .addPost ul li a::before {
-    margin-right: 6px;
-    font-size: 24px;
+  margin-right: 6px;
+  font-size: 24px;
 }
 
 .addPost ul li:nth-child(1) a::before {
-    content: '\f03d';
-    color: #f52b2b;
+  content: '\f03d';
+  color: #f52b2b;
 }
 
 .addPost ul li:nth-child(2) a::before {
-    content: '\f302';
-    color: #41f029;
+  content: '\f302';
+  color: #41f029;
 }
 
 .addPost ul li:nth-child(3) a::before {
-    content: '\f4da';
-    color: #f3e520;
+  content: '\f4da';
+  color: #f3e520;
 }
 
 .addPost ul li a,
 .likes-comments a {
-    color: #666;
-    font-weight: 600;
+  color: #666;
+  font-weight: 600;
 }
 
 /* posts section starts */
 
 .post-list {
-    width: 34%;
-    margin: 0 auto;
+  width: 34%;
+  margin: 0 auto;
+  overflow-y: auto;
 }
 
 .post-list .wrapper { width: 100%; }
 
 .post-list .wrapper > ul > li {
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 9px -5px #000000bf;
-    background-color: #fff;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 9px -5px #000000bf;
+  background-color: #fff;
 }
 
 .popup-heading,
 .post-heading {
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
 }
 
 .popup-heading h2,
 .post-heading h2 {
-    font-weight: 600;
-    font-size: 14px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .post-heading small { font-size: 12px; }
 
 .popup-heading small::after,
 .post-heading small::after {
-    content: '\f57e';
-    margin-left: 10px;
-    color: #666;
-    font-size: 14px;
+  content: '\f57e';
+  margin-left: 10px;
+  color: #666;
+  font-size: 14px;
 }
 
 .post-list p {
-    margin: 0 15px 20px 15px;
-    font-size: 15px;
+  margin: 0 15px 10px 15px;
+  font-size: 15px;
 }
 
 .popup-heading .user::after,
-.post-heading .user::after { font-size: 48px; }
+.post-heading .user::after {
+  font-size: 48px;
+}
 
 .likes-comments,
 .post-attr {
-    padding: 14px 0;
-    margin: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
+  padding: 14px 0;
+  margin: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
 }
 
 .likes-comments a:first-child::before {
-    content: '\f164';
-    padding: 7px 8px;
-    margin-right: 10px;
-    border-radius: 50%;
-    background-color: #0b84ee;
-    color: #fff;
-    font-size: 12px;
+  content: '\f164';
+  padding: 7px 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #0b84ee;
+  color: #fff;
+  font-size: 12px;
 }
 
 .post-attr {
-    margin-bottom: 15px;
-    border-top: 1px solid #bfc2c6;
-    border-bottom: 1px solid #bfc2c6;
+  margin-bottom: 15px;
+  border-top: 1px solid #bfc2c6;
+  border-bottom: 1px solid #bfc2c6;
 }
 
 .post-attr li a {
-    color: #666;
-    font-size: 14px;
+  color: #666;
+  font-size: 14px;
 }
 
 .post-attr li a::before { margin-right: 5px; }
@@ -476,70 +500,85 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 /* popup section starts */
 
 .layer {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #000;
-    opacity: .5;
-    text-indent: -9999px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: .5;
+  text-indent: -9999px;
 }
 
 .popup,
 .gif-popup {
-    width: 34%;
-    height: fit-content;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 9px -5px #000000bf;
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #fff;
-    z-index: 10;
-    overflow-y: hidden;
+  width: 34%;
+  height: fit-content;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  box-shadow: 0px 0px 9px -5px #000000bf;
+  z-index: 10;
+  overflow-y: hidden;
 }
 
 .gif-popup ul {
-    height: 400px;
-    overflow-y:scroll
+  height: 400px;
+  overflow-y:scroll
 }
+
+.gif-popup ul li {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.gif-popup ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gif-popup ul li:hover { transform: scale(.90); }
 
 .gif-popup .wrapper,
 .popup .wrapper {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 15px;
-    margin: 0 auto;
-    z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  margin: 0 auto;
+  z-index: 10;
 }
 
 .popup .close-popup {
-    padding: 4px 14px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: #d8dadb;
-    font-size: 24px;
-    cursor: pointer;
-    transition: .5s ease;
+  padding: 4px 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #d8dadb;
+  font-size: 24px;
+  cursor: pointer;
+  transition: .5s ease;
 }
 
 .gif-popup h2,
 .popup > h2 {
-    width: 100%;
-    padding: 15px 0;
-    border-bottom: 1px solid #bfc2c6;
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center;
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid #bfc2c6;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
 }
 
 .popup .user::after { font-size: 45px; } 
@@ -548,106 +587,113 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 .popup-heading small::after { margin: 0; }
 
 .popup-title select {
-    border: none;
-    padding: 2px;
-    margin-top: 5px;
-    border-radius: 3px;
-    background: #d8dadb;
-    outline: none;
+  border: none;
+  padding: 2px;
+  margin-top: 5px;
+  border-radius: 3px;
+  background: #d8dadb;
+  outline: none;
 }
 
 .popup form { margin: 0 auto; }
 
 .createdPost {
-    height: 200px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #bfc2c6;
-    overflow-y: scroll;
+  height: 200px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #bfc2c6;
+  overflow-y: scroll;
 }
 
 .popup textarea {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto;
-    border: none;
-    font-size: 24px;
-    font-family: "Open sans", sans-serif;
-    outline: none;
-    overflow-y: hidden;
-    resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: none;
+  font-size: 24px;
+  font-family: "Open sans", sans-serif;
+  outline: none;
+  overflow-y: hidden;
+  resize: none;
 }
 
 .popup form figure {
-    padding: 10px;
-    border: 1px solid #bfc2c6;
-    position: relative;
+  padding: 10px;
+  border: 1px solid #bfc2c6;
+  position: relative;
 }
 
 .close-image {
-    padding: 2px 10px 3px 10px;
-    border-radius: 50%;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #fff;
-    color: #666;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: pointer;
-    transition: .5s ease;
+  padding: 2px 10px 3px 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #666;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  transition: .5s ease;
 }
 
 .post-specs {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px;
-    border: 1px solid #bfc2c6;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #bfc2c6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .post-specs input { display: none; }
 .post-specs div div { margin: 0 10px; }
 .post-specs label,
 .post-specs div a {
-    font-size: 0;
+  font-size: 0;
 }
 
 .post-specs p {
-    font-weight: 600;
-    font-size: 16px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .post-specs label::after,
 .post-specs div a::after {
-    color: #80f770;
-    font-size: 28px;
-    text-indent: 0;
+  color: #80f770;
+  font-size: 28px;
+  text-indent: 0;
 }
 
 .post-specs div a::after {
-    content: '\f030';
-    color: #41f029;
+  content: '\f030';
+  color: #41f029;
 }
 
 .post-specs label::after {
-    content: '\f302';
-    color: #f5d133;
+  content: '\f302';
+  color: #f5d133;
 }
 
 .popup form button::after { content: ''; }
 
 .popup form button {
-    width: 100%;
-    padding: 15px;
-    margin: 10px auto;
-    border-radius: 10px;
-    background: #d8dadb;
-    color: #666;
-    font-weight: 600;
-    font-size: 18px;
+  width: 100%;
+  padding: 15px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 10px;
+  background: #0b84ee;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.popup form button.invalid {
+  background: #d8dadb;
+  color: #666;
+  cursor: not-allowed;
 }
 
 /* popup section ends */
@@ -657,21 +703,21 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 .gif-popup form { margin: 15px auto; }
 
 .back {
-    padding: 10px 14px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    background: #d8dadb;
-    cursor: pointer;
-    font-size: 0;
-    transition: .5s ease;
+  padding: 10px 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  background: #d8dadb;
+  cursor: pointer;
+  font-size: 0;
+  transition: .5s ease;
 }
 
 .back::after {
-    content: '\f060';
-    color: #000;
-    font-size: 16px;
+  content: '\f060';
+  color: #000;
+  font-size: 16px;
 }
 
 /* popup section ends */
@@ -690,4 +736,187 @@ nav ul li:nth-child(5) a::after { content: '\f11b'; }
 =================================*/
 
 /*media query starts*/
+/*media query for 1280px starts here*/
+@media only screen and (max-width: 1280px) {
+  .logo { width: 95%; }
 
+  .menu {
+    padding: 10px 20px;
+    margin: 8px auto;
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s ease;
+  }
+
+  .menu:hover { background: #d8dadb; }
+
+  nav {
+    width: 30%;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    transform: translateX(-100%);
+    transition: .8s ease;
+  }
+
+  .showNav { transform: translateX(0); }
+
+  .links {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  nav > ul {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav > ul li { margin: 5px auto; }
+
+  nav > ul li a::after {
+    padding: 12px 20px;
+    font-size: 20px;
+  }
+
+  .links ul li {
+    width: 45px;
+    height: 40px;
+    margin: 10px 5px;
+    background: #f0f2f5;
+    }
+
+  .links ul li a::after {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .post-list,
+  .addPost,
+  .gif-popup,
+  .popup {
+    width: 44%;
+  }
+}
+
+/*media query for 1024px starts here*/
+@media only screen and (max-width: 1024px) {
+    .post-list,
+    .addPost,
+    .gif-popup,
+    .popup {
+      width: 64%;
+    }
+}
+
+/*media query for 768px starts here*/
+@media only screen and (max-width: 768px) {
+  nav { width: 50%; }
+
+  .post-list,
+  .addPost,
+  .gif-popup,
+  .popup {
+    width: 74%;
+  }
+}
+
+/*media query for 540px starts here*/
+@media only screen and (max-width: 540px) {
+  nav { width: 75%; }
+
+  .post-list,
+  .addPost,
+  .gif-popup,
+  .popup {
+    width: 95%;
+  }
+
+  .menu::after {
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .logo h1 a::after { font-size: 36px; }
+  .logo form div { padding: 4px 6px;}
+
+  .logo form input {
+    padding: 8px 4px;
+    font-size: 14px;
+  }
+
+  .logo form button::after { font-size: 12px; }
+
+  .send span { width: 15%; }
+  .send form { width: 80%; }
+
+  .send form input  {
+    margin-left: 8px;
+    font-size: 15px;
+    text-indent: 6px;
+  }
+
+  .send .user::after { font-size: 40px; }
+  .addPost ul li { margin: 15px auto 4px auto; }
+  .addPost ul li a { font-size: 12px; }
+  .addPost ul li a::before { font-size: 15px; }
+
+  .popup .close-popup {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+
+  .popup textarea { font-size: 15px; }
+}
+
+/*media query for 320px starts here*/
+@media only screen and (max-width: 320px) {
+  .logo { width: 90%; }
+  .menu { padding: 4px; }
+  .logo form input { width: 70%; }
+  .send form { width: 100%; }
+
+  .send form input {
+    padding: 15px 4px;
+    font-size: 14px;
+  }
+
+  .popup,
+  .popup .wrapper { box-sizing: border-box; }
+
+  .popup > h2 {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .popup .close-popup {
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  .popup .user::after { font-size: 35px; } 
+  .popup-title { margin-left: 0; }
+  .popup-title h2 { font-size: 12px; }
+  
+  .popup-title select {
+    margin-top: 2px;
+    font-size: 10px;
+  }
+
+  .post-specs p { font-size: 14px; }
+  .post-specs label::after,
+  .post-specs div a::after {
+    font-size: 18px;
+  }
+
+  .popup form button { 
+    padding: 6px;
+    font-size: 14px;
+  }
+}
