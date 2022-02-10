@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### gif api key
+
+This project contains gif api key, to access the gif adding feature you are required to register on [https://giphy.com/login/](https://giphy.com/login/) and include the api key in a `.env` file as `SECRET_CODE=your_api_key`
+
+### modules used as dev dependencies
+
+axios
+react-bottom-scroll-listener

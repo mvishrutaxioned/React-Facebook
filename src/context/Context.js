@@ -17,7 +17,7 @@ export const ContextProvider = (props) => {
 
     // run once on page reload
     useEffect(() => getLocalData(), []);
-    
+
     // saving data to localStorage on updation
     useEffect(() => localStorage.setItem('data', JSON.stringify(data)));
 
