@@ -14,8 +14,8 @@ const GifPopup = ({ gifPopUp, setUrl }) => {
   async function fetchGifs(str) {
     let url = "";
     (str.length ? 
-      url = `https://api.giphy.com/v1/gifs/search?api_key=vwCJb5WqEeZPk3DZXFNzkCOmLUNqJnDv&limit=5&q=${str}`:
-      url = `https://api.giphy.com/v1/gifs/trending?api_key=vwCJb5WqEeZPk3DZXFNzkCOmLUNqJnDv&limit=5`
+      url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_SECRET_CODE}&limit=5&q=${str}`:
+      url = `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_SECRET_CODE}&limit=5`
     )
     await axios.get(url)
     .then(res => setGifs(res.data.data))
